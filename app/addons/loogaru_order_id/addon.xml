@@ -1,0 +1,60 @@
+<?xml version="1.0"?>
+<!--Software License Agreement
+	(c) 2017 Loogaru, Durkin Andrey
+	This is commercial software, only users who have purchased a valid
+	license and accept to the terms of the License Agreement can install
+	and use this program.
+
+    THIS SOFTWARE IS PROVIDED BY THE COPYRIGHT HOLDER AND CONTRIBUTORS "AS IS" AND ANY
+    EXPRESS OR IMPLIED WARRANTIES, INCLUDING, BUT NOT LIMITED TO, THE IMPLIED
+    WARRANTIES OF MERCHANTABILITY AND FITNESS FOR A PARTICULAR PURPOSE ARE
+    DISCLAIMED. IN NO EVENT SHALL THE COPYRIGHT OWNER OR CONTRIBUTORS BE LIABLE FOR ANY
+    DIRECT, INDIRECT, INCIDENTAL, SPECIAL, EXEMPLARY, OR CONSEQUENTIAL DAMAGES
+    (INCLUDING, BUT NOT LIMITED TO, PROCUREMENT OF SUBSTITUTE GOODS OR SERVICES;
+    LOSS OF USE, DATA, OR PROFITS; OR BUSINESS INTERRUPTION) HOWEVER CAUSED AND
+    ON ANY THEORY OF LIABILITY, WHETHER IN CONTRACT, STRICT LIABILITY, OR TORT
+    (INCLUDING NEGLIGENCE OR OTHERWISE) ARISING IN ANY WAY OUT OF THE USE OF THIS
+    SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF SUCH DAMAGE. -->
+<addon scheme="2.0">
+	<id>loogaru_order_id</id>
+	<version>1.0</version>
+	<name>[Loogaru] Order id</name>
+	<description><![CDATA[Adds extra order id, and search by order ids<a target="_blank" href="http://looga.ru/cs-cart_module/order-id_add-on/"> View add-on page</a>]]></description>
+	<has_icon>Y</has_icon>
+	<priority>10</priority>
+	<position>0</position>
+	<status>active</status>
+	<auto_install>MULTIVENDOR,ULTIMATE</auto_install>
+
+	<default_language>en</default_language>
+	<authors>
+		<author>
+			<name>Durkin Andrey</name>
+			<email>andrey@looga.ru</email>
+			<url>http://looga.ru</url>
+		</author>
+	</authors>
+	<supplier>Loogaru</supplier>
+	<supplier_link>http://looga.ru</supplier_link>
+	<compatibility>
+		<core_edition>ULTIMATE,MULTIVENDOR</core_edition>
+	</compatibility>
+	<queries>
+		<item for="install">
+			ALTER TABLE `?:orders`
+			ADD `extra_id` varchar(32) NOT NULL DEFAULT '';
+		</item>
+		<item for="uninstall">
+			ALTER TABLE `?:orders`
+			DROP `extra_id`;
+		</item>
+	</queries>
+	<language_variables>
+		<item lang="ru" id="loogaru_extra_id">Доп. №</item>
+		<item lang="en" id="loogaru_extra_id">Extra id</item>
+	</language_variables>
+	<translations>
+		<item for="name" lang="ru">[Loogaru] Номер заказа</item>
+		<item for="description" lang="ru"><![CDATA[Добавляет дополнительный номер заказа и поиск по номерам заказа<a target="_blank" href="http://looga.ru/cs-cart_module/order-id_add-on/"> Открыть страницу модуля</a>]]></item>
+	</translations>
+</addon>
